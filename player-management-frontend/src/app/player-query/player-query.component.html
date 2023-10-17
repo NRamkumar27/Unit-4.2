@@ -1,0 +1,24 @@
+<h2>Player Query</h2>
+<form (ngSubmit)="executeQuery()" #queryForm="ngForm">
+  <div>
+    <label for="queryName">Player Name:</label>
+    <input type="text" id="queryName" name="queryName" [(ngModel)]="queryData.name">
+  </div>
+  <div>
+    <label for="queryAces">Aces:</label>
+    <input type="number" id="queryAces" name="queryAces" [(ngModel)]="queryData.aces">
+  </div>
+  <!-- Add more query fields as needed -->
+  <div>
+    <button type="submit">Execute Query</button>
+  </div>
+</form>
+<div *ngIf="queryResults">
+  <h3>Query Results</h3>
+  <ul>
+    <li *ngFor="let result of queryResults">
+      {{ result.name }} - Aces: {{ result.aces }}
+      <!-- Include other relevant data in the results -->
+    </li>
+  </ul>
+</div>
